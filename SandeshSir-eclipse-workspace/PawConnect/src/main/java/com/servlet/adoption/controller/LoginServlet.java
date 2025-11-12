@@ -7,6 +7,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import com.servlet.adoption.dao.UserDAO;
+import com.servlet.adoption.dao.UserDAOImpl;
+import com.servlet.adoption.dto.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,17 +20,25 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
 
+	UserDAO edao=null;
+	public LoginServlet(){
+		edao=new UserDAOImpl();
+		
+	}
+	
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
     	String email = request.getParameter("email");
         String password = request.getParameter("password");
-
+         User user = edao.loginUser(email, password);
 		PrintWriter out = response.getWriter();
-        if (USERNAME.equals(email) && PASSWORD.equals(password)) {
-         
-            HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
+
+		if(user!=null) { 
+			System.out.println("User object");
             session.setAttribute("userEmail", email);
+    		out.print("Logged in Successfully");
 
             response.sendRedirect("dashboard.jsp");
         } else {
