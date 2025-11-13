@@ -9,28 +9,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <i class="fas fa-paw"></i>
-                    <span>PawConnect</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.jsp">HOME</a></li>
-                    <li><a href="pets.jsp">ADOPT</a></li>
-                    <li><a href="about.jsp">ABOUT US</a></li>
-                    <li><a href="contact.jsp">CONTACT</a></li>
-                </ul>
-                <div class="auth-buttons">
-                    <button class="btn btn-login" onclick="window.location.href='login.jsp'">Login</button>
-                    <button class="btn btn-register" onclick="window.location.href='register.jsp'">Register</button>
-                </div>
-            </nav>
-        </div>
-    </header>
-
+    <%@ include file="header.jsp" %>
+    
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -45,7 +25,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="images/hero-pets.jpg" alt="Happy pets" onerror="this.src='https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+                    <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Happy pets">
                 </div>
             </div>
         </div>
@@ -59,33 +39,163 @@
                 <p>We provide comprehensive services to make pet adoption and care simple and enjoyable</p>
             </div>
             <div class="features-grid">
-                <div class="feature-card">
+                <!-- Adoption Process Card -->
+                <div class="feature-card" onclick="window.location.href='pets.jsp'">
                     <div class="feature-icon">
                         <i class="fas fa-dog"></i>
                     </div>
                     <h3>Easy Adoption Process</h3>
                     <p>Find your perfect pet with our simple and transparent adoption process.</p>
+                    <button class="learn-more-btn">Start Adoption</button>
                 </div>
-                <div class="feature-card">
+                
+                <!-- Fast Delivery Card -->
+                <div class="feature-card" onclick="window.location.href='delivery.jsp'">
                     <div class="feature-icon">
                         <i class="fas fa-shipping-fast"></i>
                     </div>
                     <h3>Fast Delivery</h3>
                     <p>Get all your pet supplies delivered right to your doorstep.</p>
+                    <button class="learn-more-btn">Shop Now</button>
                 </div>
-                <div class="feature-card">
+                
+                <!-- Veterinary Support Card -->
+                <div class="feature-card" onclick="window.location.href='vet-care.jsp'">
                     <div class="feature-icon">
                         <i class="fas fa-user-md"></i>
                     </div>
                     <h3>Veterinary Support</h3>
                     <p>Access our network of trusted veterinarians for your pet's health needs.</p>
+                    <button class="learn-more-btn">Book Appointment</button>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Pets Adopted</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="1000">0</div>
+                    <div class="stat-label">Happy Families</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Partner Vets</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="24">0</div>
+                    <div class="stat-label">Hours Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Testimonials Section with Actual Photos -->
+<section class="testimonials">
+    <div class="container">
+        <div class="section-title">
+            <h2>What Pet Parents Say</h2>
+            <p>Read stories from our happy customers</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"PawConnect helped me find my perfect companion, Max. The adoption process was smooth and the team was very supportive throughout!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://i.pravatar.cc/100?img=1" alt="Sarah Johnson" onerror="this.style.display='none'">
+                    <div>
+                        <h4>Sarah Johnson</h4>
+                        <span>Dog Mom</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"The veterinary services are exceptional! Dr. Smith took great care of my cat Luna during her emergency. Highly recommended!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://i.pravatar.cc/100?img=2" alt="Mike Chen" onerror="this.style.display='none'">
+                    <div>
+                        <h4>Mike Chen</h4>
+                        <span>Cat Dad</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"Fast delivery and great quality products! My dog Buddy loves his new toys and the food delivery service is a lifesaver."</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://i.pravatar.cc/100?img=3" alt="Priya Sharma" onerror="this.style.display='none'">
+                    <div>
+                        <h4>Priya Sharma</h4>
+                        <span>Pet Parent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
     <%@ include file="footer.jsp" %>
     
-    <script src="js/main.js"></script>
+    <script>
+        // Animated counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const increment = target / speed;
+                let current = 0;
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.innerText = Math.ceil(current);
+                        setTimeout(updateCounter, 10);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+
+                updateCounter();
+            });
+        }
+
+        // Intersection Observer for counter animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                }
+            });
+        });
+
+        observer.observe(document.querySelector('.stats-section'));
+
+        // Feature card hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureCards = document.querySelectorAll('.feature-card');
+            
+            featureCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>

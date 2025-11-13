@@ -23,28 +23,29 @@
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <h3>Address</h3>
-                            <p>123 Pet Street, City, State 12345</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Phone</h3>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <p>info@pawconnect.com</p>
+                           <h3>Address</h3>
+            <p>Devarachikkanahalli, Bengaluru, Karnataka - 560068</p>
+        </div>
+    </div>
+    <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <div>
+            <h3>Phone</h3>
+            <p>+91 8951505875</p>
+        </div>
+    </div>
+    <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <div>
+            <h3>Email</h3>
+            <p>info@pawconnect.com</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="contact-form">
-                    <form action="contact" method="post">
+                    <h3>Send us a Message</h3>
+                    <form>
                         <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" id="name" name="name" required>
